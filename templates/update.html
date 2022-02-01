@@ -1,0 +1,31 @@
+{% extends "layout.html" %} {% block body %}
+<form class="m-5" action="/update/{{ post.id }}" method="post">
+  <div class="mb-4">
+    <label for="title" class="form-label">タイトル</label>
+    <input
+      type="text"
+      name="title"
+      class="form-control"
+      value="{{ post.title }}"
+      required
+    />
+  </div>
+  <div class="mb-4">
+    <label for="detail" class="form-label">内容</label>
+    <input
+      type="text"
+      name="detail"
+      class="form-control"
+      value="{{ post.detail }}"
+    />
+  </div>
+  <div class="mb-4">
+    <label for="due" class="form-label">期限</label>
+    <input type="date" name="due" required value="{{ post.due.date() }}" />
+  </div>
+  <a type="button" class="btn btn-outline-success" href="/" role="button"
+    >戻る</a
+  >
+  <button type="submit" class="btn btn-primary" value="change">決定</button>
+</form>
+{% endblock %}
